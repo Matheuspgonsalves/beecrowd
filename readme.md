@@ -1,0 +1,1 @@
+Repositório destinado a resolução de problemas dos exercícios propostos pelo beecrowd
