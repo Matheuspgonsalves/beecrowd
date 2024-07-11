@@ -1,54 +1,27 @@
-Leia um valor de ponto flutuante com duas casas decimais. Este valor representa um valor monetário. A seguir, calcule o menor número de notas e moedas possíveis no qual o valor pode ser decomposto. As notas consideradas são de 100, 50, 20, 10, 5, 2. As moedas possíveis são de 1, 0.50, 0.25, 0.10, 0.05 e 0.01. A seguir mostre a relação de notas necessárias.
+## Equação de Bhaskara
 
-**Entrada**
-O arquivo de entrada contém um valor de ponto flutuante N (0 ≤ N ≤ 1000000.00).
+### Problema
 
-**Saída**
-Imprima a quantidade mínima de notas e moedas necessárias para trocar o valor inicial, conforme exemplo fornecido.
+Leia 3 valores de ponto flutuante e efetue o cálculo das raízes da equação de Bhaskara. Se não for possível calcular as raízes, mostre a mensagem correspondente “Impossivel calcular”, caso haja uma divisão por 0 ou raiz de número negativo.
+
+### Entrada
+
+Leia três valores de ponto flutuante (double) A, B e C.
+
+### Saída
+
+Se não houver possibilidade de calcular as raízes, apresente a mensagem "Impossivel calcular". Caso contrário, imprima o resultado das raízes com 5 dígitos após o ponto, com uma mensagem correspondente conforme exemplo abaixo. Imprima sempre o final de linha após cada mensagem.
+
+### Exemplos de Entrada/Saída
 
 | Exemplo de Entrada | Exemplo de Saída |
 |--------------------|------------------|
-| 576.73             | NOTAS:           |
-|                    | 5 nota(s) de R$ 100.00 |
-|                    | 1 nota(s) de R$ 50.00 |
-|                    | 1 nota(s) de R$ 20.00 |
-|                    | 0 nota(s) de R$ 10.00 |
-|                    | 1 nota(s) de R$ 5.00  |
-|                    | 0 nota(s) de R$ 2.00  |
-|                    | MOEDAS:           |
-|                    | 1 moeda(s) de R$ 1.00 |
-|                    | 1 moeda(s) de R$ 0.50 |
-|                    | 0 moeda(s) de R$ 0.25 |
-|                    | 2 moeda(s) de R$ 0.10 |
-|                    | 0 moeda(s) de R$ 0.05 |
-|                    | 3 moeda(s) de R$ 0.01 |
-|
-| 4.00               | NOTAS:           |
-|                    | 0 nota(s) de R$ 100.00 |
-|                    | 0 nota(s) de R$ 50.00  |
-|                    | 0 nota(s) de R$ 20.00  |
-|                    | 0 nota(s) de R$ 10.00  |
-|                    | 0 nota(s) de R$ 5.00   |
-|                    | 2 nota(s) de R$ 2.00   |
-|                    | MOEDAS:           |
-|                    | 0 moeda(s) de R$ 1.00  |
-|                    | 0 moeda(s) de R$ 0.50  |
-|                    | 0 moeda(s) de R$ 0.25  |
-|                    | 0 moeda(s) de R$ 0.10  |
-|                    | 0 moeda(s) de R$ 0.05  |
-|                    | 0 moeda(s) de R$ 0.01  |
-|
-| 91.01              | NOTAS:           |
-|                    | 0 nota(s) de R$ 100.00 |
-|                    | 1 nota(s) de R$ 50.00  |
-|                    | 2 nota(s) de R$ 20.00  |
-|                    | 0 nota(s) de R$ 10.00  |
-|                    | 0 nota(s) de R$ 5.00   |
-|                    | 0 nota(s) de R$ 2.00   |
-|                    | MOEDAS:           |
-|                    | 1 moeda(s) de R$ 1.00  |
-|                    | 0 moeda(s) de R$ 0.50  |
-|                    | 0 moeda(s) de R$ 0.25  |
-|                    | 0 moeda(s) de R$ 0.10  |
-|                    | 0 moeda(s) de R$ 0.05  |
-|                    | 1 moeda(s) de R$ 0.01  |
+| 10.0 20.1 5.1       | R1 = -0.29788    |
+|                     | R2 = -1.71212    |
+|--------------------|------------------|
+| 0.0 20.0 5.0        | Impossivel calcular |
+|--------------------|------------------|
+| 10.3 203.0 5.0      | R1 = -0.02466    |
+|                     | R2 = -19.68408   |
+|--------------------|------------------|
+| 10.0 3.0 5.0        | Impossivel calcular |
