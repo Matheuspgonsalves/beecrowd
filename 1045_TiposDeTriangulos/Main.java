@@ -56,12 +56,11 @@ public class Main {
         
         if(A >= (B+C) || B >= (A+C) || C >= (A+B)){
             System.out.println("NAO FORMA TRIANGULO");
-        } 
+        } else if(Math.pow(A,2) > Math.pow(B,2) + Math.pow(C,2)){
+            System.out.println("TRIANGULO OBTUSANGULO");
+        }
         if(Math.pow(A,2) == (Math.pow(B,2) + Math.pow(C,2))){
             System.out.println("TRIANGULO RETANGULO");
-        }
-        if(Math.pow(A,2) > Math.pow(B,2) + Math.pow(C,2)){
-            System.out.println("TRIANGULO OBTUSANGULO");
         }
         if( (Math.pow(A,2)) < (Math.pow(B,2) + Math.pow(C,2))){
             System.out.println("TRIANGULO ACUTANGULO");
@@ -70,7 +69,7 @@ public class Main {
             System.out.println("TRIANGULO EQUILATERO");
         }
         if((A == B && B != C) || (A == C && C != B) || (C == B && B != A)){
-            System.out.println("TRIANGULO ISOCELES");
+            System.out.println("TRIANGULO ISOSCELES");
         }
        
         sc.close();
