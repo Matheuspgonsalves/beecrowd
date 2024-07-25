@@ -14,7 +14,18 @@ public class Main {
             string[i] = sc.readLine();
         }
 
+        String[] criptografada = new String[N];
+        
+        for(int i = 0; i < string.length; i++){
+            for(int j = 0; j < string[i].length(); j++){
+                System.out.println(string[i].charAt(j));
+            }
+        }
+
+        
+
         sc.close();
     }
+
  
 }
