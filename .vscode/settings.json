@@ -1,5 +1,6 @@
 {
     "json.schemas": [
         
-    ]
+    ],
+    "dotnet.defaultSolution": "Main.sln"
 }
