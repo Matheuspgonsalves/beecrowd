@@ -5,7 +5,6 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         Lista lista;
-        
         String in = sc.nextLine();
         
         while(verificaFim(in)){
@@ -22,81 +21,99 @@ public class Main {
 
             for(int i = 0; i < vetorNums.length; i++){
                 num = sc.nextInt();
-                sc.nextLine();
 
-                if(num % 3 == 0){
-                    lista.inserirPrioridade(num);
-                } else if(num % 3 > 0) {
-                    
+                if(num % 2 != 0 && num % m == 0){
+                    lista.inserirImparPrioridade(num);
+                } else if(num % 2 == 0 && num % m == 0){
+                    lista.inserirParPrioridade(num);
+                } else {
+
                 }
             }
-    
+
+            lista.mostrar();
+            sc.nextLine();
             in = sc.nextLine();
         }
     }
 
-    public static boolean verificaFim(String in){
-        if(in.charAt(0) == '0' || in.charAt(2) == '0'){
+    public static boolean verificaFim(String in) {
+        String[] partes = in.split(" ");
+        if (partes.length < 2) {
             return false;
         }
-        return true;
+        return !(partes[0].equals("0") && partes[1].equals("0"));
     }
  
 }
 
-class Lista {
+class Lista{
     int[] array;
     int n;
+    int prioridadeImpar;
+    int prioridadePar;
 
-    Lista(int tamanho){
-        array = new int[tamanho];
+    Lista(int tam){
+        array = new int[tam];
         n = 0;
+        prioridadeImpar = 0;
+        prioridadePar = 0;
     }
 
-    public void inserirPrioridade(int x) throws Exception{
-        if (n >= array.length)
-        throw new Exception("Erro! Tamanho ultrapassado");
+    public void inserirImparPrioridade(int x) throws Exception{
+        if(n >= array.length)
+        throw new Exception("Erro!");
 
-        if(x % 2 != 0){
-            
-            for(int i = n; i > 0; i--){
-                if(x > array[i-1]){
-                    array[i] = array[i-1];
-                } else {
-                    array[i] = array[i-1];
-                }
-            }
-        } else {
-            for(int i = n; i > 1; i--){
-                if(array[i - 1] % 2 == 0 && x < array[i - 1]){
-
-                }
-            }
+        for(int i = n; i > 0; i--){
+            array[i] = array[i - 1];
         }
-
         
+        if(x > array[0]){
+            array[0] = x;
+        } else {
+            array[1] = x;
+        }
+        
+        prioridadeImpar++;
         n++;
-
     }
 
-    public void inserirPrioridadeEntreImparPar(int x) throws Exception{
-        if (n >= array.length)
-        throw new Exception("Erro! Tamanho ultrapassado");
+    public void inserirParPrioridade(int x) throws Exception{
+        if(n >= array.length)
+        throw new Exception("Erro!");
 
-        if(x % 2 != 0){
-            for(int i = n; i > 0; i--){
-                array[i] = array[i-1];
-            }
-        } else {
-            for(int i = n; i > 1; i--){
-                array[i] = array[i-1];
-            }
+        for(int i = n; i > prioridadeImpar; i--){
+            array[i] = array[i - 1];
         }
-        
 
-        array[0] = x;
+        if(x < array[prioridadeImpar]){
+            array[prioridadeImpar] = x;
+        } else {
+            array[prioridadeImpar + 1] = x;
+        }
+
+        prioridadePar++;
         n++;
+    }
 
+    public void inserir(int x) throws Exception{
+        if(n >= array.length)
+        throw new Exception("Erro!");
+
+        for(int i = n; i > (prioridadeImpar + prioridadePar); i--){
+            array[i] = array[i - 1];
+        }
+
+        array[prioridadeImpar + prioridadePar] = x;
+
+        prioridadePar++;
+        n++;
+    }
+
+    public void mostrar(){
+        for(int i = 0; i < n; i++){
+            System.out.println(array[i]);
+        }
     }
 
 
